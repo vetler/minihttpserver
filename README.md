@@ -24,4 +24,4 @@ After this, it needs to be started, as follows:
     // and when you're done:
     server.stop()
 
-GL&HF!
+Build it with SBT first, of course. GL&HF!
