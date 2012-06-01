@@ -1,6 +1,20 @@
 # MiniHttpServer
 
-A minimal library for embedding an HTTP server, written in Scala. To use it, extend *MiniHttpServer* and define routes, as shown here in an example taken from the test code:
+A minimal library for embedding an HTTP server, written in Scala.
+
+## How to use
+
+Assuming you use SBT, add the following resolver and library dependencies:
+
+    :::scala
+    resolvers += "Roeim.net repository" at "http://roeim.net/maven"
+
+    libraryDependencies ++= Seq(
+      "net.roeim.minihttpserver" %% "minihttpserver" % "0.1"
+    )
+
+
+Next, extend *MiniHttpServer* and define routes, as shown here in an example taken from the test code:
 
     :::scala
     class TestServer extends MiniHttpServer {
@@ -24,4 +38,4 @@ After this, it needs to be started, as follows:
     // and when you're done:
     server.stop()
 
-Build it with SBT first, of course. GL&HF!
+GL&HF!
