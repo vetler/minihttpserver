@@ -1,3 +1,7 @@
 project/target/
+target/
+.cache
+.project
+.classpath
 glob:*~
 glob:*.swp
