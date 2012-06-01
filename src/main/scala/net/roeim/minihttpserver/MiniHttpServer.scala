@@ -8,6 +8,9 @@ import com.sun.net.httpserver.HttpExchange
 import com.sun.net.httpserver.HttpHandler
 import com.sun.net.httpserver.HttpServer
 
+/**
+ * Handles server configuration details, starting and stopping
+ */
 abstract class SimpleHttpServerBase(val socketAddress: String = "127.0.0.1",
   val port: Int = 8080,
   val backlog: Int = 0) extends HttpHandler {
@@ -15,6 +18,9 @@ abstract class SimpleHttpServerBase(val socketAddress: String = "127.0.0.1",
   private val server = HttpServer.create(address, backlog)
   server.createContext("/", this)
 
+  /**
+   * Sends a HTTP response with the specified HTTP response code and string as content
+   */
   def respond(exchange: HttpExchange, code: Int = 200, body: String = "") {
     val bytes = body.getBytes
     exchange.sendResponseHeaders(code, bytes.size)
@@ -30,10 +36,21 @@ abstract class SimpleHttpServerBase(val socketAddress: String = "127.0.0.1",
 }
 
 abstract class MiniHttpServer extends SimpleHttpServerBase {
+  // Contains mappings from URL paths to functions serving the page content
   private val mappings = new HashMap[String, (HttpExchange) => Any]
 
+  /**
+   * Set a function to serve a specific URL path. The following example will set
+   * the path /monkey to return the content "foo":
+   * <code>
+   * get("/monkey") ((exchange: HttpExchange) => { "foo" }
+   * </code>
+   */
   def get(path: String)(action: (HttpExchange) => Any) = mappings += path -> ((exchange: HttpExchange) => action(exchange))
 
+  /**
+   * Handle a HTTP request
+   */
   def handle(exchange: HttpExchange) = mappings.get(exchange.getRequestURI.getPath) match {
     case None => respond(exchange, 404)
     case Some(action) => try {
