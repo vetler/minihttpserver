@@ -1,6 +1,7 @@
 # MiniHttpServer
 
-A minimal library for embedding an HTTP server, written in Scala.
+A minimal library for embedding an HTTP server, written in Scala. Mostly copied from
+[this answer](http://stackoverflow.com/a/6432180/2935) at [StackOverflow](http://stackoverflow).
 
 ## How to use
 
