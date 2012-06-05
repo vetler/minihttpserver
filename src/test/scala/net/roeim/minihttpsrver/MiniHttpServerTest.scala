@@ -27,7 +27,6 @@ class MiniHttpServerTestSuite extends FunSuite with BeforeAndAfterAll {
   // Start the server before we start testing
   override def beforeAll(configMap: Map[String, Any]) {
     server.start()
-
   }
 
   // Cleanup
