@@ -2,7 +2,7 @@ name := "minihttpserver"
 
 organization := "net.roeim.minihttpserver"
 
-version := "0.1"
+version := "0.1.1"
 
 scalaVersion := "2.9.2"
 

@@ -11,15 +11,15 @@ class MiniHttpServerTestSuite extends FunSuite with BeforeAndAfterAll {
 
   // Define a test server that has a few pages we can test against
   class TestServer extends MiniHttpServer {
-    get("/")((exchange: HttpExchange) => {
+    get("/") { exchange =>
       exchange.getResponseHeaders().add("Content-type", "text/html")
       "It works!"
-    })
+    }
 
-    get("/foo")((exchange: HttpExchange) => {
+    get("/foo") { exchange =>
       exchange.getResponseHeaders().add("Content-type", "text/plain")
       "And here's foo."
-    })
+    }
   }
 
   var server: TestServer = new TestServer

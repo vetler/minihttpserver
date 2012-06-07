@@ -22,15 +22,15 @@ Next, extend *MiniHttpServer* and define routes, as shown here in an example tak
 
     :::scala
     class TestServer extends MiniHttpServer {
-      get("/")((exchange: HttpExchange) => {
+      get("/") { exchange => 
         exchange.getResponseHeaders().add("Content-type", "text/html")
         "It works!"
-      })
+      }
 
-      get("/foo")((exchange: HttpExchange) => {
+      get("/foo") { exchange =>
         exchange.getResponseHeaders().add("Content-type", "text/plain")
         "And here's foo."
-      })
+      }
     }
 
 After this, it needs to be started, as follows:

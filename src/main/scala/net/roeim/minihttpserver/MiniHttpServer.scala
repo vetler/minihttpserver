@@ -46,7 +46,7 @@ abstract class MiniHttpServer extends SimpleHttpServerBase {
    * get("/monkey") ((exchange: HttpExchange) => { "foo" }
    * </code>
    */
-  def get(path: String)(action: (HttpExchange) => Any) = mappings += path -> ((exchange: HttpExchange) => action(exchange))
+  def get(path: String)(action: HttpExchange => Any) = mappings += path -> action
 
   /**
    * Handle a HTTP request
