@@ -14,7 +14,7 @@ Assuming you use SBT, add the following resolver and library dependencies:
     resolvers += "Roeim.net repository" at "http://roeim.net/maven"
 
     libraryDependencies ++= Seq(
-      "net.roeim.minihttpserver" %% "minihttpserver" % "0.1"
+      "net.roeim.minihttpserver" %% "minihttpserver" % "0.1.2"
     )
 
 
