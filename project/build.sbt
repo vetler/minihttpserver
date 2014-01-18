@@ -1,3 +1,3 @@
-resolvers += Classpaths.typesafeResolver
+resolvers += Classpaths.typesafeReleases
 
-addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.2")
