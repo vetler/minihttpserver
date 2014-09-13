@@ -13,7 +13,7 @@ Assuming you use SBT, add the following resolver and library dependencies:
     :::scala
     resolvers += "Roeim.net repository" at "http://roeim.net/maven"
 
-    libraryDependencies += "net.roeim.minihttpserver" %% "minihttpserver" % "0.1.2"
+    libraryDependencies += "net.roeim.minihttpserver" %% "minihttpserver" % "1.0"
 
 
 Next, extend *MiniHttpServer* and define routes, as shown here in an example taken from the test code:
